@@ -1,0 +1,47 @@
+#container{
+    display: flex;
+    justify-content:space-around;
+}
+#des1 {
+    background: url(images/oeufs.jpg);
+    width: 90px; height: 90px;
+    background-position-y: 0px;
+}
+
+#bas1 {
+    text-align: center;
+    cursor: pointer;
+}
+
+#des2 {
+    background: url(images/oeufs.jpg);
+    width: 90px; height: 90px;
+    background-position-y: 0px;
+}
+
+#bas2 {
+    text-align: center;
+    cursor: pointer;
+}
+
+#des3 {
+    background: url(images/oeufs.jpg);
+    width: 90px; height: 90px;
+    background-position-y: 0px;
+}
+
+#bas3 {
+    text-align: center;
+    cursor: pointer;
+}
+
+#des4 {
+    background: url(images/oeufs.jpg);
+    width: 90px; height: 90px;
+    background-position-y: 0px;
+}
+
+#bas4 {
+    text-align: center;
+    cursor: pointer;
+}

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <title>Portfolio Intégration S3</title>
+    <meta charset="utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- css de bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<!-- css pour les icones -->
+    <link rel="stylesheet" type="text/css" href="css/open-iconic-bootstrap.css">
+<!-- css perso -->
+    
+    
+    
+    <link rel="stylesheet" type="text/css" href="css/news.css">
+    <link rel="stylesheet" type="text/css" href="css/poussins.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet"> 
+
+  
+
+    
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark" id="header">
+      <a class="navbar-brand" href="#"> Portfolio d'intégration S3</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuResponsive">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menuResponsive">
+        <ul class="navbar-nav ">
+          <li><a class="nav-link" href="#anchor1">Toy Story</a></li>
+          <li><a class="nav-link" href="#anchor2">Drag & Drop</a></li>
+          <li><a class="nav-link" href="#anchor4">Canvas</a></li>
+          <li><a class="nav-link" href="#anchor5">Newsletter</a></li>
+          <li><a class="nav-link" href="#anchor6">Poussins Casino</a></li>
+          
+
+
+        </ul>
+      </div>
+     </nav>
+    
+    <div id="container-images">
+  			<img src="images/developpeur-web.jpg" alt="" id="images"> 
+
+		<h1>Jérémy FRAZIER
+			<br />-<br />
+		Portfolio d'intégration</h1>
+    </div>
+
+    <div class="container-fluid ml-0 mr-0"></div>
+
+
+      <div id="anchor1" class="anchor"></div>
+     
+      
+        <div class="row" id="sc-toy">
+        	
+            <div class="col-12 col-md-5" id="p1">
+            	<h2 id="ts">Toy Story</h2>
+              <p class="tpp">Voici le premier TP du semestre : <a href="sequence1/index.html">Le jeu de cartes Toy Story</a>. L'année recommence sur les chapeaux de roues avec ce tp reprenant les bases du CSS vues aux semestres précédents et en y ajoutant les transitions. On y apprend également à utiliser des fichiers json, très pratiques pour gérer automatiquement les statistiques sur les cartes par exemple.</p>
+              
+
+            </div>
+
+            <div class="col-md-1"></div>
+
+           	<div class="col-md-6" id="cont-toy">
+           		<img class="image" id="img-toy" src="images/toystory.jpg" alt="tp toy story" />
+              <a href="sequence1"><button id="aller">Tester</button></a>
+           	</div>
+
+          
+
+        </div> <!--Fin de la première ligne -->
+
+
+        
+        <div id="anchor2" class="anchor"></div>
+      
+        
+         <div class="row" id="sc-dd">
+  					
+                    <div class="col-md-6" id="cont-dd">
+                    	<img class ="image" id="img-dd" src="images/scene.jpg"></img>
+                      <a href="sequence3/click_and_push/index.html"><button id="aller2">Tester</button></a>
+                    </div>	
+
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5" id="p2">
+                    	<h2 id="dd">Drag & Drop</h2>
+                    	<p class="tpp">On en vient au deuxième TP du semestre : le fameux <a href="sequence3/click_and_push/index.html">Drag and Drop</a>. Cette technique basée sur le jQuery UI est très utile lorsqu'il s'agit de créer un puzzle, où un point and click. Ici le but était de créer une petite énigme mettant en place ces techniques, en plus du javascript habituel. Cela nous sera utile pour notre projet sur le bestiaire fantastique. (Indice : j'aime la guitare...)</p>
+                    </div>	
+
+        
+    
+
+   		 </div><!--fin de la ligne 2 -->
+
+
+
+   		
+
+   		 <div id="anchor3" class="anchor"></div>
+      
+        
+         <div class="row" id="sc-chat">
+  					
+                    
+                    
+        
+    
+
+   	      </div><!--fin de la ligne 3 -->
+
+
+        
+
+        <div id="anchor4" class="anchor"></div>
+
+          <div class="row" id="sc-canvas">
+                    <div class="col-lg-6" id="cont-canvas">
+
+                      <div id="menu-canvas" >
+                        <h3 class="tpp">Évitez les scies! Touchez J pour sauter</h3>
+                        <canvas width="500px" height="500px"id ="monCanvas">
+    
+                        </canvas>
+                      </div>
+                       
+
+                    
+
+                    </div>
+
+                    <div class="col-lg-6"id="p4">
+                      <h2 id="can"><a href="sequence6/index.html">Canvas Fast&Furious</a> </h2>
+                      <p class="tpp" id='pa4'>Et voici le TP Canvas, personnellement mon préféré ! Comme son nom l'indique, notre objectif a été de créer un jeu de type "don't touch the spikes" avec la technique du canvas en javascript, et d'un timer qui redessine la voiture dans la scène à intervalles de temps réguliers, modifiant sa position et sa vitesse. J'ai également intégré un système de score. Ci-dessous la liste dans l'ordre de tout les films de la saga dans l'ordre</p>
+                      <ol class="">
+                        <li>Fast&Furious</li>
+                        <li>2Fast2Furious</li>
+                        <li>Fast&Furious3 : Tokyo Drift</li>
+                        <li>Fast&Furious4</li>
+                        <li>Fast&Furious5</li>
+                        <li>Fast&Furious6</li>
+                        <li>Fast$furious7</li>
+                        <li>Fast&Furious8</li>
+                        <li>Fast&Furious : Hobbs & Shaw</li>
+                        <li>Fast&Furious9 (au cinéma le 14 juillet 2021)</li>
+                      </ol>
+                    </div> 
+    
+
+          </div><!--fin de la ligne 4 -->
+
+
+
+
+
+
+          
+        <div id="anchor5" class="anchor"></div>
+
+          <div class="row" id="sc-news">
+
+
+                    <div class="col-md-5"id="p5">
+                      <h2>Newsletter</h2>
+                      <p class="tpp">La newsletter. L'enjeu de l'exercice est de créer un formulaire html simple, mais néanmoins dynamique. On utilise donc php et ajax pour vérifier les informations.(Pas de spams, promis !)</p>
+                    </div> 
+                    <div class="col-md-1" id="cont-news"></div>
+
+                    <div class="col-md-6" id="cont-news">
+
+                      <fieldset value="Inscrivez-vous à notre newsletter">
+                          <legend>Inscrivez-vous à notre newsletter</legend>
+                        <form action="validation.php" method="post">
+                          <label for="name">Votre prénom</label>
+                          <input type="text" name="prenom" id="prenom"><br /><br />
+                          <label for="mail">Email</label>
+                          <input type="text" name="email" id="email"><br /><br />
+                          <input type="submit" name="envoyer" id="envoyer" value="Envoyer">
+                        </form>
+                      </fieldset>
+
+                    </div>
+
+                    
+    
+
+          </div><!--fin de la ligne 5 -->
+
+
+
+
+          
+
+        <div id="anchor6" class="anchor"></div>
+        <div class="col-mx"id="p6">
+          <h2>Poussins Casino</h2>
+          <p class="tpp">Et voilà, nous voici au dernier TP de ce S3. On termine en douceur en créant ce petit jeu, encore une fois avec du javascript. Il faut reconstruire le chemin de la naissance du poussin ! Cela peut, comme le TP Drag & Drop, servir pour notre projet du bestiaire fantastique. Même si c'est un sacré challenge, essayez, ce n'est pas aussi dûr que ça en a l'air ;-) !</p>
+        </div> 
+
+          <div class="row" id="sc-pouss">
+
+                    <div class="col-md-6" id="cont-pouss">
+
+                      <div id="mini-conteneur">
+                        <div class="te">
+                          <div class="tes">
+                              <button id="haut1">-</button>
+                          </div>
+                          <div id="des1"></div>
+                          <div class="tes">
+                              <button id="bas1">+</button>
+                          </div>
+                      </div>
+                      <div class="te">
+                          <div class="tes">
+                              <button id="haut2">-</button>
+                          </div>
+                          <div id="des2"></div>
+                          <div class="tes">
+                              <button id="bas2">+</button>
+                          </div>
+                      </div>
+                      <div class="te">
+                          <div class="tes">
+                              <button id="haut3">-</button>
+                          </div>
+                          <div id="des3"></div>
+                          <div class="tes">
+                              <button id="bas3">+</button>
+                          </div>
+                      </div>
+                      <div class="te">
+                          <div class="tes">
+                              <button id="haut4">-</button>
+                          </div>
+                          <div id="des4"></div>
+                          <div class="tes">
+                              <button id="bas4">+</button>
+                          </div>
+                      </div>
+                          
+
+                      <button id="valider">Valider</button><br />
+                      <p id="resultat"></p>
+                      
+
+                    </div>
+
+                    
+
+                    
+
+                    
+    
+
+          </div><!--fin de la ligne 6 -->
+
+      
+</div> <!--FIN CONTAINER  -->
+
+<footer id="footer">
+  <ul>
+    <li><a href="sequence1/index.html">Toy story</a></li>
+    <li><a href="sequence3/click_and_push/index.html">Drag and drop</a></li>
+    <li><a href="sequence4/index.html">Poussins Casino</a></li>
+    <li><a href="sequence5/index.html">Newsletter</a></li>
+    <li><a href="sequence6/index.html">Canvas</a></li>
+    <li>©JérémyFRAZIER2021</li>
+    
+  </ul>
+</footer>
+ 
+
+
+ 
+
+</body>
+   <!-- JQUERY -->
+   <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+   <script src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+<!-- POPPER POUR PLUS DE FONCTIONNALITES -->
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
+<!-- JS DE BOOTSTRAP -->
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+ <!-- JS PERSO -->
+ 
+ <script src="js/jquery.localScroll.min.js"></script>
+ <script src="js/jquery.scrollTo.min.js"></script>
+ <script src="js/accueil.js"></script>
+ <script src="js/msg.js"></script>
+ <script src="js/news.js"></script>
+ <script src="js/poussins.js"></script>
+
+ <script>
+   
+	//declaration des variables
+	var canvas1 = document.getElementById('monCanvas');
+	var context = canvas1.getContext('2d');
+	var x=250; 
+	var y=250; 
+	var vity=0; 
+	var vitx=4; 
+	var sauter=0; 
+	var oldsauter=0; 
+	var xobs=475; 
+	var yobs=200; 
+	var compteur=0;
+
+	$('body').keydown(function(ev){
+	if(ev.keyCode == 74) sauter=1 ;
+	});
+
+$('body').keyup(function(ev){
+	if(ev.keyCode == 74) {sauter=0;oldsauter=0} ;
+	}); 
+	
+	// appel du ballon, des barres, et des obstacles
+   
+	var voiture = new Image();
+	voiture.src = "images/voiture.png";
+
+	var voiture2 = new Image();
+	voiture2.src = "images/voiture2.png";
+	
+	var barre = new Image();
+	barre.src = "images/barre.png";
+
+	var obstacle = new Image();
+	obstacle.src = "images/obstacle.png";
+
+	var fond = new Image();
+	fond.src = "images/fastfurious.jpg";
+
+   
+
+	// Rafraichir la scène pour les déplacements
+	var montimer = setInterval(function(){
+		//Dessiner le fond  
+		context.drawImage(fond,0,0)
+		
+
+		//Dessiner la voiture
+		context.drawImage(voiture,x,y);
+	   
+		
+
+		//Animer le ballon
+		x+=vitx
+		
+		//Dessiner les barres
+		context.drawImage(barre,0,-25);
+		context.drawImage(barre,0,475);
+		x+=vitx
+		y+=vity
+
+		//Dessiner les obstacles
+
+		context.drawImage(obstacle, xobs, yobs);
+
+
+		//compteur 
+
+		 
+
+		 //incrementation variable vity
+
+		 vity += 0.05;
+
+		//test des bordures
+		if( x >= 430 ) { // Touche à droite
+			
+			vitx = -vitx ;
+			
+			compteur += 1;
+			
+			 
+
+			if(y >= yobs-40 && y <= yobs+59) {
+				//console.log('touché')
+				compteur = 0;
+			}
+			
+			x = 430 
+			
+		
+			xobs = -24
+			yobs = Math.round((Math.random()*330)+20)
+			
+		}
+		if( x <= 0  ) {  // Touche à gauche
+			vitx = -vitx ;
+			
+			compteur += 1;
+			context.drawImage(voiture,x,y)
+			
+			x= 0 
+
+			if(y >= yobs-40 && y <= yobs+89) {
+				//console.log('touché')
+				compteur = 0;
+			}
+		
+			xobs = 476
+			yobs = Math.round((Math.random()*330)+20)
+		}
+		if( y >= 435 ) { 
+			vity = -vity ;
+			compteur = 0 
+
+			if(y >= yobs-40 && y <= yobs+89) {
+				//console.log('touché')
+				compteur = 0;
+			}
+			
+			y= 435 }
+		if( y <= 20  ) { 
+			vity = -vity ;
+			compteur = 0
+			
+
+			if(y >= yobs-40 && y <= yobs+89) {
+				//console.log('touché')
+				compteur = 0;
+			}
+			
+			y= 20 }
+		
+		
+
+	   
+
+		if( sauter == 1 && oldsauter == 0 ) { oldsauter=1 ; vity-=4; }
+
+				
+		
+			//compteur 
+
+		context.fillStyle="white";
+		context.fillText('Score:'+compteur,10,50);
+
+
+	   
+
+
+	}, 25)
+	
+
+ </script>
+</html>

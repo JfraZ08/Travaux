@@ -1,0 +1,17 @@
+
+#scene {
+    background: url(images/scene.jpg);
+    width: 1280px;
+    height: 820px;
+    position: relative;
+    margin: auto;
+}
+
+.monboutton{
+        cursor: grab;
+}
+
+.monboutton:active {
+    cursor: grabbing;;
+
+}

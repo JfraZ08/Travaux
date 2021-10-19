@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu Javascript</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Faster+One&display=swap');
+        body{
+            background-color: lightslategray;
+            
+        }
+        #titre{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 10px dotted blue;
+            font-family: 'Faster One', cursive;
+            color:yellowgreen;
+            font-size: 20px;
+            
+            
+        }
+
+        #regles {
+            width: 400px;
+            float:inline-start;
+            
+            
+        }
+        canvas {
+            margin-left: 5%;
+            margin-top: 5%;
+        }
+        span {
+            color: orange;
+            
+        }
+
+        li {
+            margin-top: 2%;
+        }
+
+        .touche {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .titre {
+            font-size: 15px;
+            font-weight: bold;
+        }
+    </style>
+    <script type="text/javascript">
+    
+    
+    $(document).ready(function(){
+        //declaration des variables
+        var canvas1 = document.getElementById('monCanvas');
+        var context = canvas1.getContext('2d');
+        var x=250; 
+        var y=250; 
+        var vity=0; 
+        var vitx=4; 
+        var sauter=0; 
+        var oldsauter=0; 
+        var xobs=475; 
+        var yobs=200; 
+        var compteur=0;
+
+        $('body').keydown(function(ev){
+        if(ev.keyCode == 74) sauter=1 ;
+        });
+
+    $('body').keyup(function(ev){
+        if(ev.keyCode == 74) {sauter=0;oldsauter=0} ;
+        }); 
+        
+        // appel du ballon, des barres, et des obstacles
+       
+        var voiture = new Image();
+        voiture.src = "Image/voiture.png";
+
+        var voiture2 = new Image();
+        voiture2.src = "Image/voiture2.png";
+        
+        var barre = new Image();
+        barre.src = "Image/barre.png";
+
+        var obstacle = new Image();
+        obstacle.src = "Image/obstacle.png";
+
+        var fond = new Image();
+        fond.src = "Image/fastfurious.jpg";
+
+       
+
+        // Rafraichir la scène pour les déplacements
+        var montimer = setInterval(function(){
+            //Dessiner le fond  
+            context.drawImage(fond,0,0)
+            
+
+            //Dessiner la voiture
+            context.drawImage(voiture,x,y);
+           
+            
+
+            //Animer le ballon
+            x+=vitx
+            
+            //Dessiner les barres
+            context.drawImage(barre,0,-25);
+            context.drawImage(barre,0,475);
+            x+=vitx
+            y+=vity
+
+            //Dessiner les obstacles
+
+            context.drawImage(obstacle, xobs, yobs);
+
+
+            //compteur 
+
+             
+
+             //incrementation variable vity
+
+             vity += 0.05;
+
+            //test des bordures
+            if( x >= 430 ) { // Touche à droite
+                
+                vitx = -vitx ;
+                
+                compteur += 1;
+                
+                 
+
+                if(y >= yobs-40 && y <= yobs+59) {
+                    //console.log('touché')
+                    compteur = 0;
+                }
+                
+                x = 430 
+                
+            
+                xobs = -24
+                yobs = Math.round((Math.random()*330)+20)
+                
+            }
+            if( x <= 0  ) {  // Touche à gauche
+                vitx = -vitx ;
+                
+                compteur += 1;
+                context.drawImage(voiture,x,y)
+                
+                x= 0 
+
+                if(y >= yobs-40 && y <= yobs+89) {
+                    //console.log('touché')
+                    compteur = 0;
+                }
+            
+                xobs = 476
+                yobs = Math.round((Math.random()*330)+20)
+            }
+            if( y >= 435 ) { 
+                vity = -vity ;
+                compteur = 0 
+
+                if(y >= yobs-40 && y <= yobs+89) {
+                    //console.log('touché')
+                    compteur = 0;
+                }
+                
+                y= 435 }
+            if( y <= 20  ) { 
+                vity = -vity ;
+                compteur = 0
+                
+
+                if(y >= yobs-40 && y <= yobs+89) {
+                    //console.log('touché')
+                    compteur = 0;
+                }
+                
+                y= 20 }
+            
+            
+
+           
+
+            if( sauter == 1 && oldsauter == 0 ) { oldsauter=1 ; vity-=4; }
+
+                    
+            
+                //compteur 
+
+            context.fillStyle="white";
+            context.fillText('Score:'+compteur,10,50);
+
+
+           
+
+ 
+        }, 25)
+        
+    })
+    </script>
+</head>
+<body>
+    <div id="titre"><h2>Jeu CANVAS fast&furious</h2></div>
+    <div id="regles">
+        <p>Bienvenue sur la page concernant le super jeu <span class="titre">Canvas fast&furious</span> voici les différentes règles très simple d'utilisation :</p>
+        <ul>
+            <li>But du jeu : Faire le score le plus haut possible s'affichant tout en haut à gauche du jeu</li>
+            <li>La touche <span class="touche">J</span> vous permet de faire rebondir la voiture de Vin Diesel Alias Dominic Toretto dans la saga</li>
+            <li>Je vous souahite bonne chance car cela paraît simple mais vous verrez bien par vous même.</li>
+            <li>Et si la saga vous intéresse je vous invite à regarder tout les différents films ci-dessous dans l'ordre :
+                <ol>
+                    <li>Fast&Furious</li>
+                    <li>2Fast 2Furious </li>
+                    <li>Fast&Furious: Tokyo Drift</li>
+                    <li>Fast&Furious 4</li>
+                    <li>Fast&Furious 5</li>
+                    <li>Fast&Furious 6</li>
+                    <li>Fast&Furious 7</li>
+                    <li>Fast&Furious 8</li>
+                    <li>Fast&Furious: Hobbs & Shaw</li>
+                    <li>Fast&Furious 9 (sortie le 14 juillet 2021 au cinéma)</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+
+
+    <canvas width='500' height='500' id="monCanvas"></canvas>
+    
+</body>
+</html>

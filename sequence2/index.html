@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon tchat</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script>
+        $(document).ready(function(){
+            //console.info('Demarrage de jquery')
+            setInterval(function(){
+                // console.info('Ca tourne')
+                $.get("affiche.php", function(donnees) {
+                    $("#affiche").html(donnees);
+                });
+            }, 2000)
+
+            $('form').submit(function(e){
+                e.preventDefault() // empeche le changement de page / l'appel à l'action du formulaire
+                console.info('envoie du formulaire')
+
+                var monPseudo = $('#pseudo').val()
+                var monMessage = $('#message').val()
+                console.log('pseudo : '+ monPseudo + ' message :' + monMessage )
+
+                $.ajax({
+                    url: 'dire.php',
+                    data: { pseudo : monPseudo, message : monMessage }
+                });
+            })
+        });
+    </script>
+</head>
+<body>
+    <h1>Bienvenue sur mon tchat</h1>
+
+    <div id="affiche">Chargement des messages...</div>
+
+    <form action="dire.php" method="get">
+        <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo">
+        <input type="text" id="message" name="message" placeholder="Message">
+        <button type="submit">Envoyer</button>
+    </form>
+    
+</body>
+</html>

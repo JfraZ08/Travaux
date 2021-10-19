@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Toy Story</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+</head>
+<body>
+    <img src="images/logo.png" alt="logo" class="logo">
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script>
+         $(document).ready(function(){
+    console.log("démarrage");
+    fetch('datastory.json')
+        .then(function (test) {
+            console.log('le ficher est arrivé')
+            console.log('maintenant c\est bon' )
+            return test.json()
+        })
+    .then(function (reponse) {
+        console.log('fin');
+        reponse.forEach (function f(search) {
+            document.body.innerHTML +=  `
+     <div class="toy-card">
+                <div class="toy-card__image">
+                <img src=' ` +search.photo+  ` ' alt="">
+                </div>
+                <div class="toy-card__name"><p>' ` +search.nom+ ` '</p></div>
+            <div class="toy-card__description">
+                <p>' ` +search.info+ ` ' </p>
+            </div>
+            <div class="toy-card__unit-stats">
+            <div class="one-third">
+                <div class="third">
+                <div class="stat">  ' `+search.vie+ ` '  </div>
+                <div class="stat-value">Vie</div>
+                </div>
+                <div class="third">
+                <div class="stat"> ' ` +search.discretion+ `  ' </div>
+                <div class="stat-disc"> Discretion </div>
+                </div>
+                <div class="third">
+                <div class="stat"> ' ` +search.action+ ` ' </div>
+                <div class="stat-act"> Action </div>
+                </div>
+                </div>
+
+
+                </div>
+                </div>
+    `
+        });
+    })
+}) 
+    var monTableau = [
+
+{ "nom": "Woody", "vie": "25", "discretion": "22", "action": "40", "photo": "images/woody.png", "info": "Les mains en l'air ! Le shérif Woody est la pour faire régner l ordre dans la chambre d'Andy." },
+
+{ "nom": "Buzz l'éclair", "vie": "35", "discretion": "15", "action": "70", "photo": "images/buzz.png", "info": "Vers l'infini et au-delà !" },
+
+{ "nom": "Pil Poil", "vie": "14", "discretion": "10", "action": "60", "photo": "images/pilpoil.png", "info": "Il cherche à éliminer le grand méchant Zurg. Buzz sait voler grâce à ses ailes déployables." },
+
+{ "nom": "Alien", "vie": "11", "discretion": "12", "action": "10", "photo": "images/alien.png", "info": "Pas fufute mais très gentil" },
+
+{ "nom": "Rex", "vie": "40", "discretion": "24", "action": "50", "photo": "images/rex.png", "info": "Tout dans les muscles !" },
+
+{ "nom": "Jessie", "vie": "37", "discretion": "45", "action": "65", "photo": "images/jessie.png", "info": "Téméraire et intrépide ! " },
+
+{ "nom": "Sergent", "vie": "12", "discretion": "60", "action": "75", "photo": "images/sergent.png", "info": "Au service de tous !" },
+
+{ "nom": "Bayonne", "vie": "25", "discretion": "30", "action": "20", "photo": "images/bayonne.png", "info": "Tranquille et économe" },
+
+{ "nom": "ZigZag", "vie": "35", "discretion": "30", "action": "40", "photo": "images/zigzag.png", "info": "Toujours prêt à se plier en 4 pour Woody" },
+
+{ "nom": "Monsieur Patate", "vie": "18", "discretion": "35", "action": "30", "photo": "images/patate.png", "info": "Grincheux mais sympa" }
+
+]
+</script>
+<script>
+ 
+        </script>
+    </script>
+    
+</body>
+
+</html>

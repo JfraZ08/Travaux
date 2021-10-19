@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+    <title>Inscription à la newsletter</title>
+    <style>
+legend{
+    color: red;
+    background-color: greenyellow;
+    border-radius: 2px;
+}
+fieldset {
+    margin: 5%;
+    width: 300px;
+    height: 150px;
+    border-radius: 5px;
+}
+
+#email{
+    background-color: #ded0cd;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+
+}
+
+.email{
+    margin-top: 2%;
+}
+
+#prenom{
+    background-color: #ded0cd;
+    border: none;
+    border-radius: 5px;
+}
+
+#submit{
+    border-radius: 5px;
+    margin-left: 1.5%;
+    margin-top: 10%;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div id="form">
+        <fieldset>
+            <legend>Inscrivez vous à notre newsletter</legend>
+            <form action="validation.php" method="post">
+                <div class="prenom">
+                    <label for="prenom">Name : </label>
+                    <input type="text" id="prenom" name="prenom" placeholder="Prénom" required>
+                </div>
+                <br>
+                <div class="email">
+                    <label for="email">Email : </label>
+                    <input type="email" id="email" name="email" placeholder="Votre email" required><br>
+                    <input type="submit" id="submit" value="Sinscrire">
+                </div>
+        </fieldset>
+            </form>
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+      $('form').submit(function(event){
+          event.preventDefault(); // Empêche le changement de page
+          //console.log('envoi');
+          traitementDuFormulaire();
+
+      });
+
+      function traitementDuFormulaire(){
+          var formData = $('form').serialize();  // = var data = { prenom : $('#prenom').val(), mail : $('#mail').val() };
+          console.info(formData);
+
+          $.ajax({
+              dataType : 'json',
+              type : 'POST',
+              url : 'validation.php',
+              data : formData,
+              success: function (reponse){
+                  console.log(reponse);
+                  $('.erreur').remove();
+
+                  if (reponse === true) {
+                      //console.log ('tout est ok');
+                      $('input').last().after('Vous êtes bien enregistré !');
+                  }
+                  else{
+                      // Il y a des erreurs
+                      $.each(reponse, function(champ, erreur){
+                          msgErreur ='<span class="erreur">'+erreur+'</span>'
+                          $('#'+champ).after(msgErreur)
+                            
+                          $.each(reponse, function (champ, erreur){
+                            
+                          });
+                      });
+                  }
+              },
+              error: function(){
+                  console.log('Problème de validation');
+              }
+
+          });
+      }
+
+    });
+</script>
+</html>

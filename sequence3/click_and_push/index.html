@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Jeu click and push </title>
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+       $(function(){
+           
+           
+           $(".monboutton").draggable();
+       });
+    </script>
+    
+</head>
+<body>
+    <h2>Règles du jeu :</h2>
+    <p>6 clés sont disponibles</p>
+    <p>Trouvez la bonne clé pour ouvrir le coffre </p>
+   
+    <div id="scene">
+        <img src="images/scene.jpg" alt="scene" id="fond">
+        <img src="images/cle.png" alt="cle" class="monboutton" id="un">
+        <img src="images/cle.png" alt="cle" class="monboutton" id="deux">
+        <img src="images/cle.png" alt="cle" class="monboutton" id="trois">
+        <img src="images/cle.png" alt="cle" class="monboutton" id="quatre">
+        <img src="images/cle.png" alt="cle" class="monboutton" id="cinq">
+        <img src="images/cle.png" alt="cle" class="monboutton" id="six">
+    </div>
+      
+</body>
+</html>

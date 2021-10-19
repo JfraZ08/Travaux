@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enigme piou piou</title>
+    <style type="text/css">
+        html{
+            background: linear-gradient(blue, red);
+            background-repeat: no-repeat;
+            height: 100%;
+        }
+
+        body{
+            padding-top: 300px;
+            display: flex;
+            justify-content: center;
+        }
+
+        button{
+            border: none;
+            background-color: white;
+        }
+
+
+        #haut1, #haut2, #haut3, #haut4, #bas1, #bas2, #bas3, #bas4{
+            border-radius: 5px;
+            width: 70%;
+        }
+
+        #des1{
+            background: url("images/oeufs.jpg");
+            height: 90px;
+            width: 90px;
+            background-position-y: 0px;
+        }
+
+        #des2{
+            background: url("images/oeufs.jpg");
+            height: 90px;
+            width: 90px;
+            background-position-y: 0px;
+        }
+
+        #des3{
+            background: url("images/oeufs.jpg");
+            height: 90px;
+            width: 90px;
+            background-position-y: 0px;
+        }
+
+        #des4{
+            background: url("images/oeufs.jpg");
+            height: 90px;
+            width: 90px;
+            background-position-y: 0px;
+        }
+
+        .te, #valider{
+            margin-left: 5px;
+            border-radius: 5px;
+        }
+
+        .tes{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        p{
+            color: white;
+            font-family: Helvetica;
+            font-size: 200px;
+            position: fixed;
+        }
+
+        #valider:hover {
+            background: linear-gradient(blue, red);
+        }
+
+        #bas1:hover {background: linear-gradient(blue, red);
+            color: white;} 
+        #bas2:hover {background: linear-gradient(blue, red);
+            color: white;} 
+        #bas3:hover {background: linear-gradient(blue, red);
+            color: white;} 
+        #bas4:hover {
+            background: linear-gradient(blue, red);
+            color: white;
+        }
+        #haut1:hover {
+            background: linear-gradient(blue, red);
+            color: white;
+        } 
+        #haut2:hover {
+            background: linear-gradient(blue, red);
+            color: white;} 
+            #haut3:hover {
+                background: linear-gradient(blue, red);
+            color: white;} 
+            #haut4:hover {
+            background: linear-gradient(blue, red);
+            color: white;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        var depart1=0;
+        var pos1=0;
+        var depart2=0;
+        var pos2=0;
+        var depart3=0;
+        var pos3=0;
+        var depart4=0;
+        var pos4=0;
+
+        $(document).ready(function () {
+            $pos1=0, $pos2=0, $pos3=0, $pos4=0;
+            $('#bas1').click(function () {
+                $pos1-= 100; if($pos1<-300)$pos1=0;
+                $("#des1").animate({'background-position-y' : $pos1});
+            })
+
+            $('#haut1').click(function () {
+                $pos1-= -100; if($pos1<-300)$pos1=0;
+                $("#des1").animate({'background-position-y' : $pos1});
+            })
+
+            $('#bas2').click(function () {
+                $pos2 -= 100; if($pos2<-300)$pos2=0;
+                $("#des2").animate({'background-position-y' : $pos2});
+            })
+
+            $('#haut2').click(function () {
+                $pos2 -= -100; if($pos2<-300)$pos2=0;
+                $("#des2").animate({'background-position-y' : $pos2});
+            })
+
+            $('#bas3').click(function () {
+                $pos3 -= 100; if($pos3<-300)$pos3=0;
+                $("#des3").animate({'background-position-y' : $pos3});
+            })
+
+            $('#haut3').click(function () {
+                $pos3 -= -100; if($pos3<-300)$pos3=0;
+                $("#des3").animate({'background-position-y' : $pos3});
+            })
+
+            $('#bas4').click(function () {
+                $pos4 -= 100; if($pos4<-300)$pos4=0;
+                $("#des4").animate({'background-position-y' : $pos4});
+            })
+
+            $('#haut4').click(function () {
+                $pos4 -= -100; if($pos4<-300)$pos4=0;
+                $("#des4").animate({'background-position-y' : $pos4});
+            })
+
+
+            $('#valider').click(function () {
+                if ($pos1 == -100 && $pos2 == -100 && $pos3 == -100 && $pos4 == -100) {
+                    $('#resultat').fadeOut().delay(300000).html('Bon');
+                } else {
+                    $('#resultat').fadeOut().delay(300000).html('Faux');
+                }
+            });
+        });
+
+        
+    </script>
+</head>
+<body>
+    <div class="te">
+        <div class="tes">
+            <button id="haut1">-</button>
+        </div>
+        <div id="des1"></div>
+        <div class="tes">
+            <button id="bas1">+</button>
+        </div>
+    </div>
+    <div class="te">
+        <div class="tes">
+            <button id="haut2">-</button>
+        </div>
+        <div id="des2"></div>
+        <div class="tes">
+            <button id="bas2">+</button>
+        </div>
+    </div>
+    <div class="te">
+        <div class="tes">
+            <button id="haut3">-</button>
+        </div>
+        <div id="des3"></div>
+        <div class="tes">
+            <button id="bas3">+</button>
+        </div>
+    </div>
+    <div class="te">
+        <div class="tes">
+            <button id="haut4">-</button>
+        </div>
+        <div id="des4"></div>
+        <div class="tes">
+            <button id="bas4">+</button>
+        </div>
+    </div>
+        <button id="valider">Valider</button>
+    <br>
+        <p id="resultat"></p>
+    
+</body>
+</html>

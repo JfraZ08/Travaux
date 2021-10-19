@@ -1,0 +1,40 @@
+#titre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 10px dotted blue;
+    font-family: 'Faster One', cursive;
+    color:yellowgreen;
+    font-size: 20px;
+    
+    
+}
+
+#regles {
+    width: 400px;
+    float:inline-start;
+    
+    
+}
+canvas {
+    margin-left: 5%;
+    margin-top: 5%;
+}
+span {
+    color: orange;
+    
+}
+
+li {
+    margin-top: 2%;
+}
+
+.touche {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.titre {
+    font-size: 15px;
+    font-weight: bold;
+}

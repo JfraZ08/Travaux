@@ -1,0 +1,86 @@
+#mini-conteneur{
+    display: flex;
+    justify-content:space-around;
+}
+button{
+    
+    background-color: white;
+}
+
+
+#haut1, #haut2, #haut3, #haut4, #bas1, #bas2, #bas3, #bas4{
+    border-radius: 5px;
+    width: 70%;
+}
+
+#des1{
+    background: url("../images/oeufs.jpg");
+    height: 90px;
+    width: 90px;
+    background-position-y: 0px;
+}
+
+#des2{
+    background: url("../images/oeufs.jpg");
+    height: 90px;
+    width: 90px;
+    background-position-y: 0px;
+}
+
+#des3{
+    background: url("../images/oeufs.jpg");
+    height: 90px;
+    width: 90px;
+    background-position-y: 0px;
+}
+
+#des4{
+    background: url("../images/oeufs.jpg");
+    height: 90px;
+    width: 90px;
+    background-position-y: 0px;
+}
+
+.te, #valider{
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
+.tes{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+
+#valider:hover {
+    background: linear-gradient(blue, red);
+}
+
+#bas1:hover {background: linear-gradient(blue, red);
+    color: white;} 
+#bas2:hover {background: linear-gradient(blue, red);
+    color: white;} 
+#bas3:hover {background: linear-gradient(blue, red);
+    color: white;} 
+#bas4:hover {
+    background: linear-gradient(blue, red);
+    color: white;
+}
+#haut1:hover {
+    background: linear-gradient(blue, red);
+    color: white;
+} 
+#haut2:hover {
+    background: linear-gradient(blue, red);
+    color: white;} 
+    #haut3:hover {
+        background: linear-gradient(blue, red);
+    color: white;} 
+    #haut4:hover {
+    background: linear-gradient(blue, red);
+    color: white;
+}
