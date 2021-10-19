@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: 'Nunito', sans-serif;font-size:20px;">
+<div id="myApp">
+    <h1>The Vue3 TODO list:</h1>
+    Task: <input type="text" v-model="task" v-on:keyup.enter="ajouterTache" />
+    <button v-on:click="ajouterTache">Add task</button>
+    <button v-on:click="viderListeTaches">Clear the list</button>
+    <hr /><ul>
+    <li v-for="(t, indice) in todolist">
+                    <span v-bind:style="t.finie ? styleBarre : styleNormal">
+                    {{indice}} -
+                    <input type="checkbox" v-model="t.finie" />
+                    <input type="text" v-model="t.nomTache" v-bind:style="t.finie ? styleBarre : styleNormal" />
+                    </span>
+        <button v-on:click="supprimerTache(indice)">X</button>
+    </li>
+</ul><hr />
+    {{todolist}}
+</div>
+<script>
+    const appCode = {
+        methods: {
+            supprimerTache: function (indice) {
+                this.todolist.splice(indice, 1)
+            },
+            ajouterTache: function () {
+                if (this.task.length>=8) {
+                    this.todolist.push({"finie":false, "nomTache": this.task})
+                    this.task=""
+                } else {
+                    alert("Désolé, le nom de la tâche est trop court !")
+                }
+            },
+            viderListeTaches: function () {
+                this.todolist=[]
+            }
+        },
+        data() {
+            return {
+                styleNormal: {"text-decoration": "none"},
+                styleBarre: {"text-decoration": "line-through"},
+                task: "",
+                todolist: [{"finie":true, "nomTache":"Learn Vue 3 directives"},
+                    {"finie":false, "nomTache":"Look for an internship"},
+                    {"finie":false, "nomTache":"Read the PHP course"}]
+            }
+        }
+    };
+    myApp = Vue.createApp(appCode)
+    myApp.mount('#myApp')
+</script>
+</body>
+</html>

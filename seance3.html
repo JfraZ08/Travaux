@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>seance 3 vue.js</title>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body
+<h1>List of users from Internet</h1>
+<div id="content">
+    <p>
+        There are {{nbPersons}} persons in the list, the mean age is {{meanAge}} years old.
+        The minimum balance is {{minimum}}, the maximum is {{maximum}}, the average is {{meanBalance}}.
+    </p>
+    <ul>
+
+        <li v-for="p in persons">
+            {{p.gender}} {{p.name}}, aged {{p.age}}, {{p.balance}} $, works for {{p.company}}, contact: {{p.email}}
+        </li>
+    </ul>
+</div>
+<script>
+    const appCode = {
+        data() {
+            return {
+                persons:[]
+            }
+        },
+        created() {
+            var self = this
+            $.getJSON('http://149.91.80.81/m4x201/seance3.json',
+                function (data) {
+                    self.persons = data
+            })
+        },
+        computed: {
+            nbPersons: function () {
+                return this.persons.length
+            },
+          meanAge: function () {
+            var sommeAge=0
+            this.persons.forEach(function (p)  {
+                    sommeAge+= p.age
+            })
+              var meanAge = sommeAge/this.nbPersons
+              return meanAge.toFixed(2)
+          },
+            minimum: function () {
+                var mini=10000000000
+                this.persons.forEach(function (p) {
+                    if (p.balance<mini) {
+                        mini = p.balance
+                    }
+                })
+                return mini
+            },
+            maximum: function () {
+                var maxi=0
+                this.persons.forEach(function (p) {
+                    if (p.balance>maxi) {
+                        maxi = p.balance
+                    }
+                })
+                return maxi
+            },
+            meanBalance: function () {
+                var sumBalance=0
+                this.persons.forEach(function (p) {
+                    sumBalance+= p.balance
+                })
+                var averageBalance = sumBalance/this.nbPersons
+                return averageBalance.toFixed(2)
+            }
+        }
+    }
+    myApp = Vue.createApp(appCode)
+    myApp.mount('#content')
+</script>
+</body>
+</html>

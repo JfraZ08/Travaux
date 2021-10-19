@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', sans-serif;font-size:20px;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 64px;
+            background-color: #cccccc;
+            color: darkorange;
+            /*text-shadow: 1px 1px black;*/
+            text-align: center;
+            padding-top: 10px;
+        }
+        header nav a {
+            color: blue;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 32px;
+            background-color: #cccccc;
+            color: darkorange;
+            text-shadow: 1px 1px black;
+            text-align: center;
+        }
+        #content {
+            margin: 80px 1%;
+            width: 98%;
+        }
+        .petit {
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+<div id="myApp">
+    <header>
+        <nav>
+            <router-link to="/">Home</router-link> -
+            <router-link to="/paintings">Paintings</router-link> -
+            <router-link to="/musics">Musics</router-link> -
+            <router-link to="/googleMapIUT">Contact</router-link>
+        </nav>
+    </header>
+    <div id="content">
+        <router-view></router-view>
+    </div>
+    <footer>
+        &copy; 2021 - JL
+    </footer>
+</div>
+<script>
+    // source: Vue3 documentation : "https://next.router.vuejs.org/guide/#javascript"
+    const appCode = {
+        data() {
+            return {
+            }
+        }
+    }
+
+    // ROUTING
+    // 1. define some components
+    const home = { template: '<div><h1>Home</h1><p>Welcome on my hobbies pages..</p></div>' }
+    const paintings = { template: '<div><h1>Paintings</h1><p>"Mona Lisa", Leonardo da Vinci<br /><img class="petit" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/260px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg" alt="la joconde"></p><p>"Les coquelicots", Claude Monet<br /><img class="petit" src="https://i.pinimg.com/originals/05/fa/4c/05fa4c03269233fbbedd12677c5b93f7.jpg" alt="les coquelicots" /></p></div>' }
+    const musics = { template: '<div> \
+        <h1>Musics</h1> \
+        <p> \
+            <iframe width="560" height="315" \
+            src="https://www.youtube.com/embed/tjC3fjVcDjY" \
+            frameborder="0" allow="" allowfullscreen> \
+            </iframe> \
+        </p> \
+        <p> \
+           <iframe width="560" height="315" \
+           src="https://www.youtube.com/embed/Xtm1zH6WOT8" \
+           frameborder="0" allow="" allowfullscreen> \
+            </iframe> \
+        </p> \
+    </div>'}
+
+    const googleMapIUT = {
+        template: '<div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2655.744731909583!2d4.0773498156536405!3d48.26928677923426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ee990d10f3e7cf%3A0xb266ba721a3e3dca!        2sIUT%20Troyes!5e0!3m2!1sfr!2sfr!4v1613735169960!5m2!1sfr!2sfr" width="320" height="240" frameborder="0"style="border:0;" allowfullscreen="" aria-hidden="false"tabindex="0"></iframe></div>'
+    }
+
+        const contactForm = {
+        template: `<div><h1>Contact me!</h1>
+        <form v-on:submit.prevent="beforeSend">
+            Your e-mail: <input type="text" name="email" v-model="email" placeholder="Your email..." /><br />
+            Your message: <textarea name="message" v-model="message" placeholder="Your message..."></textarea><br />
+            <input type="submit" value="Send!" />
+        </form><br /><div v-html="status"></div><br /></div>
+    `,
+        data() {
+            return {
+                email: "",
+                message: "",
+                status: ""
+            }
+        },
+        methods: {
+            beforeSend: function () {
+                console.log('(email, message): '+'('+this.email+', '+this.message+')')
+                this.status="<span style='color:orange;'>Mail sent! Thank you...</span>"
+            }
+        }
+    }
+
+        const contact = { template: '<div> \
+            <form-contact></form-contact> \
+            <googleMapIUT></googleMapIUT>\
+            </div>' }
+
+    // 2. define some routes
+    const myRoutes = [
+        { path: '/', component: home },
+        { path: '/paintings', component: paintings },
+        { path: '/musics' , component: musics },
+        { path: '/googleMapIUT' , component: googleMapIUT }
+    ]
+    // 3. create the router instance
+    const myRouter = VueRouter.createRouter({
+        // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
+        history: VueRouter.createWebHashHistory(),
+        routes: myRoutes
+    })
+
+    myApp = Vue.createApp(appCode)
+    // 5. use the router
+    myApp.use(myRouter)
+    myApp.component('form-contact', contactForm)
+    myApp.component('googleMapIUT', contact)
+    myApp.mount('#myApp')
+</script>
+</body>
+</html>
